@@ -13,6 +13,8 @@ The first plate number is 000000, followed by 000001. Finally, when you arrive a
 When 9999AA is reached, the next in the series would be 0000AB...
  
 The pattern overview looks a bit like the following:
+
+```
  
 000000
 000001
@@ -38,7 +40,8 @@ The pattern overview looks a bit like the following:
 001AAA
 ...
 ZZZZZZ
- 
+```
+
 The goal is to write a function that takes some index n as a parameter and returns the nth element in this license plate sequence.
 
 

@@ -74,12 +74,12 @@ public String calculatePlate(long index) {
         plate = String.format("%06d", index);
         
     } else if ((limit_1 <= index) && (index < limit_1_2)) {
-   	    long index_code = index - limit_1;   	    
-   	    long div = index_code / RANGE_2;
-   	    long res = index_code % RANGE_2;
-   	    plate = String.format("%05d",res).concat(String.valueOf((char)(div + ASCII_A)));
-   	    
-   	//0000AA-9999ZZ
+        long index_code = index - limit_1;   	    
+        long div = index_code / RANGE_2;
+        long res = index_code % RANGE_2;
+        plate = String.format("%05d",res).concat(String.valueOf((char)(div + ASCII_A)));
+        
+    //0000AA-9999ZZ
     } else if ((limit_1_2 <= index ) && (index < limit_1_2_3)) {
         long index_code = index - limit_1_2;
         
@@ -102,14 +102,14 @@ public String calculatePlate(long index) {
         long div_p_p = ((index_code / RANGE_4) / RANGE_AZ) / RANGE_AZ;
         
         plate = String.format("%03d",res)
-        		.concat(String.valueOf((char)(div_p_p + ASCII_A)))
+                .concat(String.valueOf((char)(div_p_p + ASCII_A)))
                 .concat(String.valueOf((char)(div_p + ASCII_A)))
                 .concat(String.valueOf((char)(div + ASCII_A)));
         
     //00AAAA-99ZZZZ
     } else if ((limit_1_2_3_4 <= index) && (index < limit_1_2_3_4_5)) {
         
-    	long index_code = index - limit_1_2_3_4;
+        long index_code = index - limit_1_2_3_4;
         long res = index_code % RANGE_5;
         long div = (index_code / RANGE_5) % RANGE_AZ;
         long div_p = ((index_code / RANGE_5) / RANGE_AZ) % RANGE_AZ; 
@@ -117,8 +117,8 @@ public String calculatePlate(long index) {
         long div_p_p_p = (((index_code / RANGE_5) / RANGE_AZ) / RANGE_AZ) / RANGE_AZ;
         
         plate = String.format("%02d",res)
-        		.concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p_p + ASCII_A)))
                 .concat(String.valueOf((char)(div_p + ASCII_A)))
                 .concat(String.valueOf((char)(div + ASCII_A)));
         
@@ -134,9 +134,9 @@ public String calculatePlate(long index) {
         long div_p_p_p_p = (((index_code / RANGE_6) / RANGE_AZ) / RANGE_AZ) / RANGE_AZ / RANGE_AZ;
         
         plate = String.format("%01d",res)
-        		.concat(String.valueOf((char)(div_p_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p + ASCII_A)))
+                .concat(String.valueOf((char)(div_p_p_p_p + ASCII_A)))
+                .concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
+                .concat(String.valueOf((char)(div_p_p + ASCII_A)))
                 .concat(String.valueOf((char)(div_p + ASCII_A)))
                 .concat(String.valueOf((char)(div + ASCII_A)));
     
@@ -150,15 +150,14 @@ public String calculatePlate(long index) {
         long div_p_p_p = ((((index_code / RANGE_7) / RANGE_AZ) / RANGE_AZ) / RANGE_AZ) % RANGE_AZ;
         long div_p_p_p_p = ((((index_code / RANGE_7) / RANGE_AZ) / RANGE_AZ) / RANGE_AZ / RANGE_AZ) % RANGE_AZ;
         long div_p_p_p_p_p = ((((index_code / RANGE_7) / RANGE_AZ) / RANGE_AZ) / RANGE_AZ / RANGE_AZ) / RANGE_AZ;
-    	
         
-        plate = ""
-        		.concat(String.valueOf((char)(div_p_p_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
-        		.concat(String.valueOf((char)(div_p_p + ASCII_A)))
-                .concat(String.valueOf((char)(div_p + ASCII_A)))
-                .concat(String.valueOf((char)(div + ASCII_A)));
+        
+        plate = "".concat(String.valueOf((char)(div_p_p_p_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p_p_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div_p + ASCII_A)))
+                 .concat(String.valueOf((char)(div + ASCII_A)));
         
     }
     
@@ -170,8 +169,8 @@ public String calculatePlate(long index) {
 //MAIN. BATCH GENERATOR OF ALL THE PLATES.
 public static void main(String[] args) throws Exception {
 
-	/*
-	// ALL POSSIBLE PLATES GENERATOR
+    /*
+    // ALL POSSIBLE PLATES GENERATOR
     long startGlobalTime = System.currentTimeMillis();
     
     CheckLetterRegistration letterRegistration = new CheckLetterRegistration();
@@ -189,7 +188,7 @@ public static void main(String[] args) throws Exception {
     long secondStartGlobalTime = System.currentTimeMillis();
     myWriter = new FileWriter("1000000-3599999.txt");
     for (long i=1000000L; i < 3600000L; i++) {
-    	myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i)+"\r\n");
+        myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i)+"\r\n");
     }
     myWriter.close();
     System.out.println("1000000-3599999 time " + (System.currentTimeMillis() - secondStartGlobalTime) + " ms ");
@@ -197,7 +196,7 @@ public static void main(String[] args) throws Exception {
     long thirdStartGlobalTime = System.currentTimeMillis();
     myWriter = new FileWriter("3600000-10359999.txt");
     for (long i=3600000L; i < 10360000L; i++) {
-    	myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i)+"\r\n");
+        myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i)+"\r\n");
     }
     myWriter.close();
     System.out.println("3600000-10359999 time " + (System.currentTimeMillis() - thirdStartGlobalTime) + " ms ");
@@ -205,7 +204,7 @@ public static void main(String[] args) throws Exception {
     long fourthStartGlobalTime = System.currentTimeMillis();
     myWriter = new FileWriter("10360000-27935999.txt");
     for (long i=10360000L; i < 27936000L; i++) {
-    	myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
+        myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
     }
     myWriter.close();
     System.out.println("10360000-27935999 time " + (System.currentTimeMillis() - fourthStartGlobalTime) + " ms ");
@@ -213,7 +212,7 @@ public static void main(String[] args) throws Exception {
     long fifthStartGlobalTime = System.currentTimeMillis();
     myWriter = new FileWriter("27936000-73633599.txt");
     for (long i=27936000L; i < 73633600L; i++) {
-    	myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
+        myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
     }
     myWriter.close();
     System.out.println("27936000-73633599 time " + (System.currentTimeMillis() - fifthStartGlobalTime) + " ms ");
@@ -221,7 +220,7 @@ public static void main(String[] args) throws Exception {
     long sixthStartGlobalTime = System.currentTimeMillis();
     myWriter = new FileWriter("73633600-192447359.txt");
     for (long i=73633600L; i < 192447360L; i++) {
-    	myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
+        myWriter.write("plate (" + i + ") = " + letterRegistration.calculatePlate(i) + "\r\n");
     }
     myWriter.close();
     System.out.println("73633600-192447359 time " + (System.currentTimeMillis() - sixthStartGlobalTime) + " ms ");

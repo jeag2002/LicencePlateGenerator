@@ -177,7 +177,7 @@ public static void main(String[] args) throws Exception {
 	/*
     long startGlobalTime = System.currentTimeMillis();
    
-    LicencePlateGeneratorByIndex letterRegistration = new LicencePlateGeneratorByIndex();
+    LicencePlateGeneratorByIndexOld letterRegistration = new LicencePlateGeneratorByIndexOld();
     
     FileWriter myWriter = null;
     

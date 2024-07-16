@@ -104,7 +104,7 @@ public class LicencePlateGeneratorByIndex {
       // ALL POSSIBLE PLATES GENERATOR
       /*
       long startGlobalTime = System.currentTimeMillis();
-      LicencePlateGeneratorByIndexBetter letterRegistration = new LicencePlateGeneratorByIndexBetter();
+      LicencePlateGeneratorByIndex letterRegistration = new LicencePlateGeneratorByIndex();
       
       FileWriter myWriter = null;
       

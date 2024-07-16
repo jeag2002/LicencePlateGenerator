@@ -88,7 +88,7 @@ public class LicencePlateGeneratorByIndex {
         //letter
         StringBuilder letters = new StringBuilder();
         for (int i = 0; i < level; i++) {
-        	letters.append((char) (ASCII_A + (index % RANGE_AZ)));
+            letters.append((char) (ASCII_A + (index % RANGE_AZ)));
             index /= RANGE_AZ;
         }
         plate.append(letters.reverse().toString());

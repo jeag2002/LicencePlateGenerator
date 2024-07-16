@@ -173,7 +173,7 @@ public static void main(String[] args) throws Exception {
     // ALL POSSIBLE PLATES GENERATOR
     long startGlobalTime = System.currentTimeMillis();
     
-    CheckLetterRegistration letterRegistration = new CheckLetterRegistration();
+    LicencePlateGeneratorByIndex letterRegistration = new LicencePlateGeneratorByIndex();
     
     FileWriter myWriter = null;
     
